@@ -1,14 +1,24 @@
+// import data from './data';
+import './App.css'
+import {BrowserRouter, Link, Route, Routes} from 'react-router-dom'
+import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
+    <div>
       <header className="App-header">
-        <a href="/" >MEZONE</a>
+        <Link to="/">MEZONE</Link>
       </header>
       <main>
-        list
-      </main>
-    </div>
+        <Routes>
+          <Route path='/product/:slug' element={<ProductScreen/>} />
+         <Route path="/" element={<HomeScreen />} />
+        </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 
